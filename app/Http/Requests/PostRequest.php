@@ -23,16 +23,29 @@ class PostRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'text' => 'required|string',
-            'author' => 'required|string',
+        $rules = [
+            'text' => 'required|string|min:1|max:255',
+            'author' => 'required|string|min:1|max:32',
             'tags' => [
-                'required',
                 'array',
+                'min:1',
                 'max:3',
             ],
-            'tags.*' => "required|integer|min:0",
+            'tags.*' => "integer|min:0",
         ];
+
+        switch ($this->getMethod()) {
+            case 'POST':
+                $_REQUEST = $_POST = [];
+
+                return $rules;
+            case 'GET':
+                return [
+                    "page" => "integer|min:1"
+                ];
+        }
+
+        return [];
 
     }
 }

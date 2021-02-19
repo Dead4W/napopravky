@@ -13,11 +13,17 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
+        /*
+         * tags table
+         */
         Schema::create('tags', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
         });
 
+        /*
+         * posts table
+         */
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('text');
@@ -26,6 +32,10 @@ class CreatePostsTable extends Migration
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
 
+        /*
+         * schema table for relationship with posts and tags
+         * many to many
+         */
         Schema::create('posts_tags', function (Blueprint $table) {
             $table->bigIncrements('id');
 
