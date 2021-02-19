@@ -9,7 +9,7 @@
         },
         "version": "1.0.0"
     },
-    "host": "localhost",
+    "host": "back.rurpg.ru",
     "basePath": "/api/",
     "schemes": [
         "http"

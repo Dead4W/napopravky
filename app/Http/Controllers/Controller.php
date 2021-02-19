@@ -10,7 +10,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 /**
  * @SWG\Swagger(
  *     schemes={"http"},
- *     host="localhost",
+ *     host="back.rurpg.ru",
  *     basePath="/api/",
  *     @SWG\Info(
  *         version="1.0.0",
