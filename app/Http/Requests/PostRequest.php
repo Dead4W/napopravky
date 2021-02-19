@@ -31,7 +31,7 @@ class PostRequest extends FormRequest
                 'min:1',
                 'max:3',
             ],
-            'tags.*' => "integer|min:0",
+            'tags.*' => "required|integer|min:0",
         ];
 
         switch ($this->getMethod()) {
