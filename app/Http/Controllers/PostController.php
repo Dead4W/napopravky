@@ -121,7 +121,7 @@ class PostController extends Controller
         $data = $request->all();
 
         $new_post = Post::create([
-            "text" => preg_replace("/\r*\n+/ui", "\r\n", $data['text']),
+            "text" => $data['text'],
             "author" => $data['author'],
         ]);
 
